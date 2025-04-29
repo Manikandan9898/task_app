@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
- //
  use App\Models\Vehicle;
  use App\Models\Company;
  use App\Models\Owner;
@@ -28,7 +27,14 @@ public function vehicle_index(Request $request)
 
     $vehicles = $vehicles->with(['company', 'owner'])->get();
 
+    if ($request->ajax()) {
+        return response()->json([
+            'vehicles' => $vehicles,
+        ]);
+    }
+
     return view('pages.vehicle', compact('vehicles', 'companies', 'owners'));
 }
+
 
 }

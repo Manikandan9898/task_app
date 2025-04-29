@@ -4,7 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Task</title>
+
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- Select2 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
   <style>
     .dropdown-submenu {
@@ -28,6 +33,7 @@
 </head>
 <body>
 
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Task App</a>
@@ -45,20 +51,13 @@
             <a class="nav-link dropdown-toggle" href="#" id="mastersDropdown" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">Masters</a>
             <ul class="dropdown-menu" aria-labelledby="mastersDropdown">
-
-              <!-- Master (has submenu) -->
               <li class="dropdown-submenu">
                 <a class="dropdown-item dropdown-toggle" href="#">Master</a>
                 <ul class="dropdown-menu">
-
-                  <li class="dropdown-submenu">
-                    <a class="dropdown-item" href="{{route('owner_master')}}">Owner</a>
-                  </li>
+                  <li><a class="dropdown-item" href="{{route('owner_master')}}">Owner</a></li>
                   <li><a class="dropdown-item" href="{{route('company_master')}}">Company</a></li>
                 </ul>
               </li>
-
-              <!-- Other Master Options -->
               <li><a class="dropdown-item" href="{{route('vehicle_master')}}">Add Vehicle</a></li>
             </ul>
           </li>
@@ -73,10 +72,17 @@
     </div>
   </nav>
 
+  <!-- Page Content -->
   <div class="container mt-5">
     @yield('content')
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+  <!-- Page-specific scripts will be injected here -->
+  @yield('scripts')
+
 </body>
 </html>
